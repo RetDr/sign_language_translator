@@ -37,3 +37,44 @@ El modelo se guardará automáticamente en `models/best_model.pth`.
 
 python scripts/run_inference.py
 
+- `q`: salir
+- `r`: reiniciar buffer de predicción
+
+## Estructura
+sign_language_translator/
+├── data/ # Datos crudos y procesados
+├── src/ # Código fuente
+│ ├── data/ # Captura y datasets
+│ ├── models/ # Arquitecturas
+│ ├── training/ # Entrenamiento
+│ ├── inference/ # Inferencia
+│ └── utils/ # Utilidades
+├── scripts/ # Scripts ejecutables
+└── notebooks/ # Jupyter notebooks
+
+## Configuración
+
+Edita `src/utils/config.py` para ajustar:
+
+- Hiperparámetros del modelo
+- Tamaño de secuencia
+- Rutas de datos
+- Parámetros de entrenamiento
+
+## Extensiones
+
+### Agregar Transformer con CTC
+
+Implementa `src/models/transformer.py` siguiendo arquitecturas como en PHOENIX-2014T para traducción continua.
+
+### Soporte para LSC (Lengua de Señas Colombiana)
+
+1. Recolecta corpus propio
+2. Anota con ELAN para glosas
+3. Ajusta vocabulario en config
+
+## Referencias
+
+- MediaPipe Holistic: https://google.github.io/mediapipe/
+- Sign Language Transformers: arXiv:2003.13830
+- WLASL Dataset: https://dxli94.github.io/WLASL/
